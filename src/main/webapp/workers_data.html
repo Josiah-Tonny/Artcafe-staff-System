@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-amber-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers Data - Artcaffe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="h-full bg-amber-50">
+    <div class="min-h-full">
+        <nav class="bg-brown-600">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-auto" src="https://www.artcaffe.co.ke/images/logo.webp" alt="Artcaffe">
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <a href="#" class="bg-brown-700 text-white px-3 py-2 rounded-md text-sm font-medium">Workers Data</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold text-brown-800">Workers Data</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <div class="px-4 py-6 sm:px-0">
+                    <div class="overflow-x-auto bg-white rounded-lg shadow-lg overflow-y-auto relative">
+                        <table id="workersTable" class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
+                            <thead>
+                                <tr class="text-left">
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Profile</th>
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Full Name</th>
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Department</th>
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Email</th>
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Phone Number</th>
+                                    <th class="bg-brown-100 sticky top-0 border-b border-brown-200 px-6 py-3 text-brown-700 font-bold tracking-wider uppercase text-xs">Work Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Worker data will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

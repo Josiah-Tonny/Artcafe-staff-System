@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artcafe System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #FFD700;
+            --background-color: #FFF8DC;
+            --text-color: #4A4A4A;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .duties, .graph {
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 1000px;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        .profile-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .profile-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 4px solid var(--background-color);
+        }
+        .nav-link {
+            transition: background-color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row">
+    <nav class="bg-primary-color text-white p-4 flex-shrink-0 md:flex-shrink md:w-1/5" style="background-color: var(--primary-color);">
+        <div class="text-center mb-8">
+            <img src="https://www.artcaffe.co.ke/images/logo.webp" alt="Artcafe Logo" class="h-16 mx-auto mb-4">
+            <h1 class="text-xl font-bold">Artcafe System</h1>
+        </div>
+        <a href="#" class="nav-link block text-center py-2 px-4 rounded mb-2 md:mb-4"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+        <a href="leave_form.html" class="nav-link block text-center py-2 px-4 rounded mb-2 md:mb-4"><i class="fas fa-calendar-alt mr-2"></i>Leave Form</a>
+        <a href="login.html" class="nav-link block text-center py-2 px-4 rounded mb-2 md:mb-4"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+        <a href="registration.html" class="nav-link block text-center py-2 px-4 rounded mb-2 md:mb-4"><i class="fas fa-user-plus mr-2"></i>Registration</a>
+        <a href="workers_data.html" class="nav-link block text-center py-2 px-4 rounded mb-2 md:mb-4"><i class="fas fa-users mr-2"></i>Workers Data</a>
+    </nav>
+    
+    <div class="container flex-grow">
+        <div class="stats">
+            <div class="card">
+                <i class="fas fa-users text-4xl mb-4" style="color: var(--secondary-color);"></i>
+                <h2 class="text-xl font-bold mb-2">Total Workers</h2>
+                <p id="totalWorkers" class="text-3xl font-bold" style="color: var(--secondary-color);">${totalWorkers}</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-umbrella-beach text-4xl mb-4" style="color: var(--accent-color);"></i>
+                <h2 class="text-xl font-bold mb-2">Workers on Leave</h2>
+                <p id="workersOnLeave" class="text-3xl font-bold" style="color: var(--accent-color);">${workersOnLeave}</p>
+            </div>
+        </div>
+        <div class="duties">
+            <h2 class="text-2xl font-bold mb-4"><i class="fas fa-tasks mr-2"></i>Duties and Posts</h2>
+            <p>Display duties and posts here...</p>
+        </div>
+        <div class="graph">
+            <h2 class="text-2xl font-bold mb-4"><i class="fas fa-chart-line mr-2"></i>Active vs Inactive Days</h2>
+            <canvas id="activityGraph" width="400" height="200"></canvas>
+        </div>
+        <div class="profile-list">
+            <h2 class="text-2xl font-bold mb-4 w-full"><i class="fas fa-id-card mr-2"></i>Registered Staff</h2>
+            ${registeredStaff}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Fetch worker data from the server
+        fetch('/api/workers-data')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('activityGraph').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Active Days',
+                            data: data.activeDays,
+                            borderColor: 'rgb(210, 105, 30)',
+                            backgroundColor: 'rgba(210, 105, 30, 0.2)',
+                            tension: 0.1
+                        }, {
+                            label: 'Inactive Days',
+                            data: data.inactiveDays,
+                            borderColor: 'rgb(255, 215, 0)',
+                            backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Activity Overview'
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching worker data:', error));
+    </script>
+</body>
+</html>

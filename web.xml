@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>com.artcafe.servlets.RegistrationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+</servlet-mapping>

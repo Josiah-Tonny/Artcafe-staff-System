@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F3E5D8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F9F1E7 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            width: 100%;
+            border-color: #D2B48C;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.2s;
+        }
+        .input-field:focus {
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+            outline: none;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #4A2C1D;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen py-12 px-4">
+    <div class="container p-8 rounded-2xl">
+        <h1 class="text-4xl font-bold mb-8 text-center text-4A2C1D">Join Our Art Cafe</h1>
+        <form action="register" method="post" enctype="multipart/form-data" class="space-y-8">
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="section-title">Personal Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="firstname" class="block font-medium text-4A2C1D mb-2">First Name</label>
+                        <input type="text" id="firstname" name="firstname" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="lastname" class="block font-medium text-4A2C1D mb-2">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="profilePicture" class="block font-medium text-4A2C1D mb-2">Profile Picture</label>
+                        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="dob" class="block font-medium text-4A2C1D mb-2">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required class="input-field">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="section-title">Work Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="department" class="block font-medium text-4A2C1D mb-2">Department</label>
+                        <input type="text" id="department" name="department" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="position" class="block font-medium text-4A2C1D mb-2">Position</label>
+                        <input type="text" id="position" name="position" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="workID" class="block font-medium text-4A2C1D mb-2">Work ID Number</label>
+                        <input type="text" id="workID" name="workID" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="workLocation" class="block font-medium text-4A2C1D mb-2">Work Location</label>
+                        <input type="text" id="workLocation" name="workLocation" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="checkInTime" class="block font-medium text-4A2C1D mb-2">Check-in Time</label>
+                        <input type="time" id="checkInTime" name="checkInTime" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="checkOutTime" class="block font-medium text-4A2C1D mb-2">Check-out Time</label>
+                        <input type="time" id="checkOutTime" name="checkOutTime" required class="input-field">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="section-title">Other Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="age" class="block font-medium text-4A2C1D mb-2">Age</label>
+                        <input type="number" id="age" name="age" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="phoneNumber" class="block font-medium text-4A2C1D mb-2">Phone Number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="email" class="block font-medium text-4A2C1D mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="input-field">
+                    </div>
+                    <div>
+                        <label for="role" class="block font-medium text-4A2C1D mb-2">Role</label>
+                        <select id="role" name="role" required class="input-field" onchange="showHideFields(this.value)">
+                            <option value="">Select Role</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Worker">Worker</option>
+                        </select>
+                    </div>
+                    <div id="usernameField" class="hidden">
+                        <label for="username" class="block font-medium text-4A2C1D mb-2">Username (Supervisor only)</label>
+                        <input type="text" id="username" name="username" class="input-field">
+                    </div>
+                    <div id="passwordField" class="hidden">
+                        <label for="password" class="block font-medium text-4A2C1D mb-2">Password (Supervisor only)</label>
+                        <input type="password" id="password" name="password" class="input-field">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="bg-8B4513 text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-6B3E0F focus:outline-none focus:ring-2 focus:ring-8B4513 focus:ring-opacity-50 transition duration-200 transform hover:scale-105">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function showHideFields(role) {
+            const usernameField = document.getElementById('usernameField');
+            const passwordField = document.getElementById('passwordField');
+
+            if (role === 'Supervisor') {
+                usernameField.classList.remove('hidden');
+                passwordField.classList.remove('hidden');
+            } else {
+                usernameField.classList.add('hidden');
+                passwordField.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

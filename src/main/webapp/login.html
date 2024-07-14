@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        }
+        .login-container {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #FFF8DC;
+        }
+        .input-field::placeholder {
+            color: rgba(255, 248, 220, 0.7);
+        }
+        .btn-login {
+            background: linear-gradient(90deg, #D2691E 0%, #8B4513 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(139, 69, 19, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="login-container w-full max-w-md p-8 rounded-lg shadow-2xl">
+        <h1 class="text-4xl font-bold mb-8 text-center text-cornsilk">Welcome Back</h1>
+        <form action="login" method="post">
+            <div class="mb-6">
+                <input type="text" id="username" name="username" required placeholder="Username" class="input-field w-full py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-sienna">
+            </div>
+            <div class="mb-8">
+                <input type="password" id="password" name="password" required placeholder="Password" class="input-field w-full py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-sienna">
+            </div>
+            <button class="btn-login w-full text-cornsilk font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-sienna" type="submit">
+                Login
+            </button>
+        </form>
+        <p class="mt-6 text-center text-cornsilk">
+            Don't have an account? 
+            <a href="registration.html" class="font-bold text-peru hover:text-burlywood transition duration-300">
+                Register here
+            </a>
+        </p>
+    </div>
+</body>
+</html>
